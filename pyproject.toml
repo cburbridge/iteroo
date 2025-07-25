@@ -1,20 +1,17 @@
 [build-system]
-requires = ["hatchling"]
+requires = ["setuptools", "wheel","hatchling", "uv-dynamic-versioning"]
 build-backend = "hatchling.build"
 
+[tool.hatch.version]
+source = "uv-dynamic-versioning"
 
 [project]
 name = "iteroo"
-version = "0.0.1"
-
+dynamic= ["version"]
 description = "Object orientated iterator wrapper."
-
 readme = "README.md"
-
 requires-python = ">=3.8"
-
 license = {text = "MIT"}
-
 keywords = ["iterators", "functional"]
 
 authors = [
@@ -56,4 +53,3 @@ packages = ["src/iteroo"]
 
 [tool.pytest.ini_options]
 addopts = "--cov=src/iteroo --cov-report=term-missing"
-
